@@ -1,0 +1,14 @@
+{
+    "name": "iapps-ihg/rpc",
+    "description": "desc",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yidong",
+            "email": "yidong@iappsasia.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
