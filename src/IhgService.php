@@ -82,9 +82,9 @@ class IhgService
 
     public function call($route, $params, $method = 'POST', $headers = [])
     {
-        $url = self::$services[$this->service];
+        $url = self::$services[$this->service] . $route;
 
-        return $this->curl($url, $method, $route, $headers, $params);
+        return $this->curl($url, $method, $headers, $params);
     }
 
 }
