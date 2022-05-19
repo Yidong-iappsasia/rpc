@@ -67,7 +67,7 @@ class IhgService
         $data = curl_exec($curl);
 
         if (curl_errno($curl)) {
-            return curl_error($curl);
+            throw new \Exception(curl_error($curl));
         }
 
         $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
@@ -82,9 +82,12 @@ class IhgService
 
     public function call($route, $params, $method = 'POST', $headers = [])
     {
-        $url = self::$services[$this->service] . $route;
-
-        return $this->curl($url, $method, $headers, $params);
+        $url      = self::$services[$this->service] . $route;
+        $response = $this->curl($url, $method, $headers, $params);
+        if ($response['http_code'] == 200) {
+            return $response['body'];
+        }
+        throw new  \Exception('request error ', $response['http_code']);
     }
 
 }
