@@ -3,10 +3,14 @@
 namespace Iapps\Ihg\Rpc;
 
 
+use Grpc\Server;
+
 class IhgService
 {
     protected static $services;
     protected static $instances = [];
+
+    protected $service;
 
     public static function init($services)
     {
@@ -22,9 +26,10 @@ class IhgService
             if (class_exists($service)) {
                 self::$instances[$name] = new $service();
             } else {
-                self::$instances[$name] = new Rpc($name);
-            }
+                self::$instances[$name] = new IhgService();
 
+                self::$instances[$name]->service = $name;
+            }
         }
         return self::$instances[$name];
     }
