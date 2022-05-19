@@ -46,11 +46,10 @@ class Rpc extends Service
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
         $data = curl_exec($curl);
 
-        //echo $data;
-
         if (curl_errno($curl)) {
             return curl_error($curl);
         }
+
         $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
         curl_close($curl);
 
