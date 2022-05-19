@@ -12,4 +12,5 @@ class B2bService extends Rpc
         $this->service = 'B2b';
     }
 
+
 }

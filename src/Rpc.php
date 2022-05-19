@@ -4,10 +4,10 @@
 namespace Iapps\Ihg\Rpc;
 
 
-class Rpc extends Service
+class Rpc extends IhgService
 {
 
-    public $service;
+    protected $service;
 
     public function __construct($service = '')
     {

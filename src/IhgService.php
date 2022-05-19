@@ -3,17 +3,17 @@
 namespace Iapps\Ihg\Rpc;
 
 
-class Service
+class IhgService
 {
-    public static $services;
-    public static $instances = [];
+    protected static $services;
+    protected static $instances = [];
 
     public static function init($services)
     {
         self::$services = $services;
     }
 
-    public static function instance($name): Service
+    public static function instance($name): IhgService
     {
         $name = ucfirst(strtolower($name));
 
@@ -31,8 +31,9 @@ class Service
 
     public function call($route, $params, $headers = [])
     {
+        $url = self::$services[$this->service];
 
-        return [self::$services, $route, $params];
+        return [self::$services, $url, $route, $params];
 
     }
 
