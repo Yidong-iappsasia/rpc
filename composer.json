@@ -1,14 +1,22 @@
 {
     "name": "iapps-ihg/rpc",
-    "description": "desc",
+    "description": "IHG Package - RPC",
+    "version": "0.0.1",
     "type": "project",
-    "license": "MIT",
+    "license": "",
+    "keywords": ["ihg", "rpc"],
     "authors": [
         {
             "name": "Yidong",
             "email": "yidong@iappsasia.com"
         }
     ],
-    "minimum-stability": "dev",
-    "require": {}
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Iapps\\Ihg\\Rpc\\": [
+                "src/"
+            ]
+        }
+    }
 }
