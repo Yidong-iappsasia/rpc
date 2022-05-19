@@ -32,6 +32,7 @@ class Service
     public function call($route, $params, $headers = [])
     {
 
+        return [self::$services, $route, $params];
 
     }
 
