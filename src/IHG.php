@@ -33,11 +33,12 @@ class IHG
     {
         if (!is_array($serviceAddress)) {
             self::register($serviceName, [$serviceAddress]);
+        } else {
+            foreach ($serviceAddress as $address) {
+                self::$archives[$serviceName][] = $address;
+            }
         }
-        foreach ($serviceAddress as $address) {
-            self::$archives[$serviceName][] = $address;
-        }
-        if (is_array(self::$archives[$serviceName])) {
+        if (isset(self::$archives[$serviceName]) && is_array(self::$archives[$serviceName])) {
             self::$archives[$serviceName] = array_unique(self::$archives[$serviceName]);
         }
         return self::discover($serviceName, true);
