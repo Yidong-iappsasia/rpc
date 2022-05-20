@@ -17,6 +17,15 @@ class IhgService
         self::$services = $services;
     }
 
+    public function __call($name, $arguments)
+    {
+        print_r([$name, $arguments]);
+
+        return $this;
+        // ihg_rpc_client
+    }
+
+
     public static function instance($name): IhgService
     {
         $name = ucfirst(strtolower($name));
@@ -34,7 +43,7 @@ class IhgService
         return self::$instances[$name];
     }
 
-    public function curl($url, $method = '', $header = [], $data = [], $referer = '', $cookie = '', $gzip = false, $returnCookie = 0)
+    protected function curl($url, $method = '', $header = [], $data = [], $referer = '', $cookie = '', $gzip = false, $returnCookie = 0)
     {
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $url);
