@@ -22,7 +22,7 @@ class IHG
             $service = new Service($serviceName);
 
             $service->name    = $serviceName;
-            $service->address = self::$archives[$serviceName];
+            $service->address = self::$archives[$serviceName] ?? [];
 
             self::$services[$serviceName] = $service;
             return self::$services[$serviceName];
