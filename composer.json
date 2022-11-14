@@ -3,7 +3,7 @@
     "description": "IHG Package - RPC",
     "version": "0.0.2",
     "type": "project",
-    "license": "",
+    "license": "apache-2.0",
     "keywords": ["ihg", "rpc"],
     "authors": [
         {
