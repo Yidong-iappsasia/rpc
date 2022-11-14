@@ -3,9 +3,6 @@
 
 namespace Iapps\Ihg\Rpc;
 
-
-use Grpc\Server;
-
 class IHG
 {
     private static $archives = [];
