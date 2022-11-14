@@ -1,7 +1,7 @@
 {
     "name": "iapps-ihg/rpc",
     "description": "IHG Package - RPC",
-    "version": "0.0.2",
+    "version": "0.0.1",
     "type": "project",
     "license": "",
     "keywords": ["ihg", "rpc"],
