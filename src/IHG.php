@@ -66,6 +66,8 @@ class IHG
         if ($method == "POST") {
             curl_setopt($curl, CURLOPT_POST, 1);
             curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data));
+        } else {
+            curl_setopt($curl, CURLOPT_URL, $url . '?' . http_build_query($data));
         }
 
         if ($cookie) {
